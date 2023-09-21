@@ -1,3 +1,16 @@
+# What's inside ?
+
+This project is a simple React app that displays a basic food order website. 
+User can add items to his cart. He can display the cart and add or remove items.
+
+This project use the following concepts: 
+- Components reusability
+- Hooks
+- Context
+- Portal
+- State Management
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
