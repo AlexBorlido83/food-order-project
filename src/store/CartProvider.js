@@ -39,23 +39,21 @@ const cartReducer = (state, action) => {
         const updatedTotalAmount = state.totalAmount - existingItem.price;
         let updatedItems;
 
-        console.log([existingCartItemIndex, existingItem, updatedTotalAmount, state.items , action.id])
         if(existingItem.amount === 1) {
             updatedItems = state.items.filter(item => item.id !== action.id);
-            console.log('IEM', updatedItems);
         } else {
             const updatedItem = { ...existingItem, amount: existingItem.amount - 1};
-            console.log('updatedItems1', updatedItems);
             updatedItems = [...state.items];
-            console.log('updatedItems2', updatedItems);
             updatedItems[existingCartItemIndex] = updatedItem;
-            console.log('updatedItems3', updatedItems);
-
         }
         return {
             items: updatedItems,
             totalAmount: updatedTotalAmount
         }
+    }
+
+    if(action.type === 'CLEAR') {
+        return defaultCartState;
     }
 
     return defaultCartState;
@@ -66,12 +64,14 @@ const CartProvider = props => {
 
     const addItemToCartHandler = (item) => {dispatchCartAction({type: 'ADD', item: item})}
     const removeItemFromCartHandler = (id) => {dispatchCartAction({type: 'REMOVE', id: id})}
+    const clearCartHandler = () => {dispatchCartAction({type: 'CLEAR'})}
 
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler, 
-        removeItem: removeItemFromCartHandler
+        removeItem: removeItemFromCartHandler,
+        clearCart: clearCartHandler,
     };
 
     return <CartContext.Provider value={cartContext}>

@@ -11,6 +11,11 @@
     padding: 1rem;
     box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
   }
+
+  .isLoading {
+    text-align: center;
+    color: red;
+  }
   
   .summary h2 {
     font-size: 2rem;
