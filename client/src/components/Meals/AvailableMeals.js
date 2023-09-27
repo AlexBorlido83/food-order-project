@@ -3,8 +3,10 @@ import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 import useHttp from "../../hooks/use-http.js";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const AvailableMeals = () => {
+  const dispatch = useDispatch();
   const [meals, setMeals] = useState([]);
   const { isLoading, error, sendRequest: fetchMeals } = useHttp();
 
@@ -21,9 +23,8 @@ const AvailableMeals = () => {
       }
       setMeals(loadedMeals);
     };
-
-    fetchMeals({ url: 'http://localhost:3000/meals' }, mealsList);
-  }, []);
+    fetchMeals({ url: 'http://localhost:3000/meals' }, mealsList)
+  }, [dispatch, fetchMeals]);
 
   // You can add a loading state while data is being fetched
   if (isLoading) {

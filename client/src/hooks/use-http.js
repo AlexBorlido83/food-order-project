@@ -1,13 +1,21 @@
 import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
+import { notificationActions } from "../store/notif-slice";
 
 const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const dispatch = useDispatch();
 
     const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
     setError(null);
-
+    dispatch(notificationActions.showNotification({
+        status: 'pending',
+        title: 'Sending...',
+        message: 'Sending Card Data!'
+      }));
+  
     try {
         const response = await fetch(
             requestConfig.url, {
@@ -27,8 +35,18 @@ const useHttp = () => {
 
         const data = await response.json();
         applyData(data);
+        dispatch(notificationActions.showNotification({
+            status: 'success',
+            title: 'Success!',
+            message: 'Sent Card Data Successfully!'
+          }));
     } catch (err) {
         setError(err.message || 'Something went wrong!');
+        dispatch(notificationActions.showNotification({
+            status: 'error',
+            title: 'Error... Something went wrong :(',
+            message: 'Error Card Data! Have you turned on the NestJS server ?'
+          }))
     }
     setIsLoading(false);
     }, []);
