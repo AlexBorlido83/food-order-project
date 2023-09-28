@@ -21,3 +21,39 @@
     font-size: 2rem;
     margin-top: 0;
   }
+
+  .addMeal {
+    background-color: white;
+    margin-top: 5rem;
+    position: fixed;
+    display: inline-block;
+    left: 0px;
+    top: 0px;
+    margin: 0 10%;
+    width: 80%;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+  }
+
+  .button {
+    cursor: pointer;
+    font: inherit;
+    border: none;
+    background-color: #4d1601;
+    color: white;
+    padding: 0.75rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+    font-weight: bold;
+    right: 10px;
+    bottom: 10px;
+    position: absolute
+  }
+  
+  .button:hover,
+  .button:active {
+    background-color: #2c0d00;
+  }

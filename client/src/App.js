@@ -1,34 +1,19 @@
-import { useState } from "react";
-import Cart from "./components/Cart/Cart";
-import Header from "./components/Layout/Header";
+
 import Meals from "./components/Meals/Meals";
-import CartProvider from "./store/CartProvider";
-import Notification from "./components/UI/Notification";
-import {useSelector} from "react-redux";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AddMeal from "./components/Meals/AddMeal";
+import RootLayout from "./components/router/Root";
 
 function App() {
-  const notification = useSelector(state => state.notif.notification)
-  const [cartIsShown, setCartIsShown] = useState(false);
-
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+  const router = createBrowserRouter([
+    {path: "/", element: <RootLayout/>, children: [
+      {index: true, element: <Meals/>},
+      {path: "/add-meal", element: <AddMeal/>}
+    ]},
+  ])
 
   return (
-    <>
-      <CartProvider>
-        {cartIsShown && <Cart onClose={hideCartHandler} />}
-        <Header onShowCart={showCartHandler} />
-        <main>
-          <Meals />
-          {notification &&<Notification status={notification.status} title={notification.title} message={notification.message}/>}
-        </main>
-      </CartProvider>
-    </>
+    <RouterProvider router={router}/>
   );
 }
 
