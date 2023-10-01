@@ -1,0 +1,113 @@
+    /* Button Styles */
+.button {
+    background-color: #b94517;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 2rem;
+    text-align: center;
+    margin: 0 auto
+    }
+  
+  .button:hover {
+    background-color: #922c01;
+  }
+
+  .button:active {
+    background-color: #341001;
+  }
+
+  .submitButton {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;  
+  }
+  
+  .addMeal {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .formTitle {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #4d1601;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+/* Label Styles */
+.label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #4d1601;
+    display: block;
+}  
+  
+/* Input Styles */
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.3s ease-in-out;
+  margin-top: 20px;
+  margin-bottom: 20px
+}
+
+.textarea {
+    width: 100%; /* Make the textarea take up the full width */
+    padding: 5px; /* Adjust padding for better appearance */
+    border: 1px solid #ccc; /* Add a border for clarity */
+  }
+
+.errorMessage {
+color: #b94517; /* Set the color for the error message */
+margin-left: 10px; /* Adjust the margin between textarea and error message */
+}
+
+.div {
+    margin-bottom: 20px;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #b94517; /* Add focus color */
+}
+  
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #4d1601;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Additional Styles (customize as needed) */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Add your custom styles here */
+  
+  /* Responsive Styles (customize as needed) */
+  @media (max-width: 768px) {
+    /* Add responsive styles here */
+  }
+  

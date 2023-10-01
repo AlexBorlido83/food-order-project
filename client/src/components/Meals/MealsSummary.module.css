@@ -22,20 +22,6 @@
     margin-top: 0;
   }
 
-  .addMeal {
-    background-color: white;
-    margin-top: 5rem;
-    position: fixed;
-    display: inline-block;
-    left: 0px;
-    top: 0px;
-    margin: 0 10%;
-    width: 80%;
-    padding: 2rem;
-    border-radius: 1rem;
-    position: relative;
-  }
-
   .button {
     cursor: pointer;
     font: inherit;
