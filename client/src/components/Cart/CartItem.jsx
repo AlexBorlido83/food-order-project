@@ -3,18 +3,17 @@ import classes from './CartItem.module.css';
 
 function CartItem(props) {
   const {
-    priceProps, name, amount, onRemove, onAdd,
+    price, name, amount, onRemove, onAdd,
   } = props;
-  // const price = `$${priceProps.toFixed(2)}`;
-  const price = typeof priceProps === 'number' ? `$${priceProps.toFixed(2)}` : 'Invalid Price';
-  // const price = `$${priceProps}`;
+
+  const priceItem = typeof price === 'number' ? `$${price.toFixed(2)}` : 'Invalid Price';
 
   return (
     <li className={classes['cart-item']}>
       <div>
         <h2>{name}</h2>
         <div className={classes.summary}>
-          <span className={classes.price}>{price}</span>
+          <span className={classes.price}>{priceItem}</span>
           <span className={classes.amount}>
             x
             {amount}

@@ -13,7 +13,6 @@ function Cart(props) {
   const cartCtx = useContext(CartContext);
   const { isLoading, sendRequest: sendUserInfo } = useHttp();
 
-  // const totalAmount = `$${cartCtx.totalAmount}`;
   const totalAmount = typeof cartCtx.totalAmount === 'number' ? `$${cartCtx.totalAmount.toFixed(2)}` : 'Invalid Price';
 
   const hasItems = cartCtx.items.length > 0;
@@ -40,6 +39,7 @@ function Cart(props) {
     cartCtx.clearCart();
   };
 
+  console.log('ff', cartCtx.items);
   const cartItems = (
     <ul className={classes['cart-items']}>
       {cartCtx.items.map((item) => (
@@ -49,8 +49,6 @@ function Cart(props) {
             name={item.name}
             amount={item.amount}
             price={item.price}
-            // onRemove={cartItemRemoveHandler.bind(null, item.id)}
-            // onAdd={cartItemAddHandler.bind(null, item)}
             onRemove={() => cartItemRemoveHandler(item.id)}
             onAdd={() => cartItemAddHandler(item)}
           />

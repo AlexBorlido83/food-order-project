@@ -18,6 +18,12 @@
   .button:active {
     background-color: #341001;
   }
+
+  .submitButton {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;  
+  }
   
   .addMeal {
     max-width: 80%;
